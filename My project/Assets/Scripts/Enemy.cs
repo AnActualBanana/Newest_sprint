@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
 
@@ -11,12 +12,24 @@ public class Enemy : MonoBehaviour
 
     public bool changeDirection = false;
 
+    public Animator anim;
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.name == "Player_projectile(Clone)")
+        {
+            Debug.Log("Projectile");
+            anim.SetTrigger("PopTr");
+            moveSpeed = 0f;
+            enemy.gravityScale = 0;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
 
         enemy = this.gameObject.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -50,11 +63,6 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Hit left wall");
             changeDirection = false;
-        }
-        if (col.gameObject.name == "Player_projectile(Clone)")
-        {
-            Debug.Log("projectile");
-            Destroy(this.gameObject);
         }
     }
 }
