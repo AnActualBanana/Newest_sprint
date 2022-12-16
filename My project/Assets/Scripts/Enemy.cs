@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("PopTr");
             moveSpeed = 0f;
             enemy.gravityScale = 0;
+            enemy.simulated = false;
         }
     }
     // Start is called before the first frame update

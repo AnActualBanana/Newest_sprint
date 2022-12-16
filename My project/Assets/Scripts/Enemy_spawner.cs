@@ -23,7 +23,7 @@ public class Enemy_spawner : MonoBehaviour
     private IEnumerator spawn_enemy(float spawn_timer, GameObject enemy) // spawns enemy
     {
         yield return new WaitForSeconds(spawn_timer);
-        Instantiate(enemy, new Vector3(Random.Range(-5, 5), 11), Quaternion.identity);
+        Instantiate(enemy, new Vector3(Random.Range(15, 25), 23), Quaternion.identity);
         StartCoroutine(spawn_enemy(spawn_timer, myPrefab));
     }
 }

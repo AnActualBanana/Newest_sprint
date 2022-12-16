@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     public int health = 3;
     public float moveSpeed = 10.0f;
+    public int score = 0;
 
     public Rigidbody2D player;
 
