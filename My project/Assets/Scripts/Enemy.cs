@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.name == "Player_projectile(Clone)")
         {
-            Debug.Log("Projectile");
             anim.SetTrigger("PopTr");
             moveSpeed = 0f;
             enemy.gravityScale = 0;
@@ -48,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name == "Right Wall" || col.gameObject.name == "Left Wall" || col.gameObject.name == "Enemy")
+        if (col.gameObject.name == "Right Wall" || col.gameObject.name == "Left Wall" || col.gameObject.name == "Enemy(Clone)")
         {
             changeDirection = true;
             moveSpeed = moveSpeed * -1;
