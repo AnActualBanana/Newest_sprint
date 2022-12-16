@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name == "Player_projectile(Clone)")
+        if (col.gameObject.name == "Player_projectile(Clone)" || col.gameObject.name == "Player")
         {
             anim.SetTrigger("PopTr");
             moveSpeed = 0f;
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
             changeDirection = true;
             moveSpeed = moveSpeed * -1;
         }
-        if (col.gameObject.name == "Player")
+        if (col.gameObject.name == "Bottom Wall")
         {
             Destroy(this.gameObject);
         }
