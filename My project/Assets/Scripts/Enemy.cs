@@ -53,10 +53,6 @@ public class Enemy : MonoBehaviour
             changeDirection = true;
             moveSpeed = moveSpeed * -1;
         }
-        if (col.gameObject.name == "Player_projectile(Clone)")
-        {
-            Destroy(this.gameObject);
-        }
         if (col.gameObject.name == "Player")
         {
             Destroy(this.gameObject);
