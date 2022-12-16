@@ -5,32 +5,26 @@ using UnityEngine;
 public class Enemy_spawner : MonoBehaviour
 {
 
-    public float spawn_timer = 60; //frames between enemy spawns
-    public float initial_spawn_timer = 60;
-    public GameObject Enemy;
+    public float spawn_timer = 1.0f; //seconds between enemy spawns
+    public GameObject myPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(spawn_enemy(spawn_timer, myPrefab));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawn_timer > 0)
-        {
-            spawn_timer -= 1;
-        }
-        else
-        {
-            spawn_enemy();
-            spawn_timer = initial_spawn_timer;
-        }
+
     }
 
-    void spawn_enemy ()
+    private IEnumerator spawn_enemy(float spawn_timer, GameObject enemy)
     {
-        Instantiate(gameObject, new Vector3(0, 11), Quaternion.identity);
+        yield return new WaitForSeconds(spawn_timer);
+        Debug.Log("Spawn");
+        Instantiate(enemy, new Vector3(Random.Range(-5, 5), 11), Quaternion.identity);
+        StartCoroutine(spawn_enemy(spawn_timer, myPrefab));
     }
 }
