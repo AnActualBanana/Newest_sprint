@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public int health = 10;
+    public int health = 3;
     public float moveSpeed = 10.0f;
 
     public Rigidbody2D player;
@@ -19,11 +19,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
         MovePlayer ();
     }
 
     public void MovePlayer()
     {
         player.velocity = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * moveSpeed;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name == "Enemy")
+        {
+            health -= 1;
+        }
     }
 }
