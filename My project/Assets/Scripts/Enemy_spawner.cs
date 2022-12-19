@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_spawner : MonoBehaviour
 {
 
-    public float spawn_timer = 1.0f; //seconds between enemy spawns
+    public float spawn_timer; //seconds between enemy spawns
     public GameObject myPrefab;
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class Enemy_spawner : MonoBehaviour
     private IEnumerator spawn_enemy(float spawn_timer, GameObject enemy) // spawns enemy
     {
         yield return new WaitForSeconds(spawn_timer);
-        Instantiate(enemy, new Vector3(Random.Range(-5, 5), 11), Quaternion.identity);
+        Instantiate(enemy, new Vector3(Random.Range(15, 25), 23), Quaternion.identity);
         StartCoroutine(spawn_enemy(spawn_timer, myPrefab));
     }
 }
