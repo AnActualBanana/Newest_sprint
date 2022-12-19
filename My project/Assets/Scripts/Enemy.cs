@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
 
     public GameObject spawner;
 
+    public GameObject player;
+
+    public GameObject Enemy_new;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "Player_projectile(Clone)" || col.gameObject.name == "Player")
@@ -24,6 +28,7 @@ public class Enemy : MonoBehaviour
             moveSpeed = 0f;
             enemy.gravityScale = 0;
             enemy.simulated = false;
+            player.GetComponent<Player>().score += 1;
         }
     }
     // Start is called before the first frame update
@@ -57,8 +62,8 @@ public class Enemy : MonoBehaviour
         }
         if (col.gameObject.name == "Bottom Wall")
         {
-            Instantiate(this.gameObject, new Vector3(Random.Range(15, 25), 23), Quaternion.identity);
-            spawner.GetComponent<Enemy_spawner>().spawn_timer -= 0.1f;
+            Enemy_new = Instantiate(Enemy_new, new Vector3(Random.Range(15, 25), 23), Quaternion.identity);
+            Enemy_new.GetComponent<Enemy>().name = this.gameObject.GetComponent<Enemy>().name;
             Destroy(this.gameObject);
         }
     }

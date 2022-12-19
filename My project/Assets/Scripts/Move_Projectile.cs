@@ -9,7 +9,7 @@ public class Move_Projectile : MonoBehaviour
 
     public float moveSpeed = 10.0f;
 
-    public Player Player;
+    public GameObject Player;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -33,10 +33,9 @@ public class Move_Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name == "Enemy(Clone)")
+        if (col.gameObject.name == "Enemy")
         {
             Destroy(this.gameObject);
-            Player.score += 1;
         }
     }
 }
