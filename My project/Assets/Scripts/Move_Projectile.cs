@@ -33,7 +33,7 @@ public class Move_Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name == "Enemy")
+        if (col.gameObject.name == "Enemy(Clone)")
         {
             Destroy(this.gameObject);
         }
