@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     public Animator anim;
 
+    public GameObject spawner;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "Player_projectile(Clone)" || col.gameObject.name == "Player")
@@ -55,6 +57,8 @@ public class Enemy : MonoBehaviour
         }
         if (col.gameObject.name == "Bottom Wall")
         {
+            Instantiate(this.gameObject, new Vector3(Random.Range(15, 25), 23), Quaternion.identity);
+            spawner.GetComponent<Enemy_spawner>().spawn_timer -= 0.1f;
             Destroy(this.gameObject);
         }
     }

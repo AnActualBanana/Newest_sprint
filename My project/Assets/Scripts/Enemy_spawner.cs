@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_spawner : MonoBehaviour
 {
 
-    public float spawn_timer = 1.0f; //seconds between enemy spawns
+    public float spawn_timer; //seconds between enemy spawns
     public GameObject myPrefab;
 
     // Start is called before the first frame update
