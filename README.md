@@ -12,5 +12,5 @@ There is one rule that must be followed… your application must follow the them
 - Click to shoot
 
 ## Team
-- Conner Curtis
-- Logan Mcclain
+- Conner Curtis https://github.com/ConnerC0
+- Logan Mcclain https://github.com/AnActualBanana
